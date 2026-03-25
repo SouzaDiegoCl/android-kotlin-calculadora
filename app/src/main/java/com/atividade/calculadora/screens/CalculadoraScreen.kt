@@ -19,6 +19,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import kotlinx.parcelize.Parcelize
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.getValue
 
 @Parcelize
 data class Calculadora(
@@ -104,6 +106,37 @@ fun CalculadoraContent(
                     )
                 ) {
                     Text("Subtraitr")
+                }
+            }
+        }
+        Column() {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Button(
+                    onClick = {
+                        calculadora.dividir()
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.surfaceVariant,
+                        contentColor = MaterialTheme.colorScheme.onSurface
+                    )
+                ) {
+                    Text("Dividir")
+                }
+                Button(
+                    onClick = {
+                        calculadora.mult()
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.surfaceVariant,
+                        contentColor = MaterialTheme.colorScheme.onSurface
+                    )
+                ) {
+                    Text("Multiplicar")
                 }
             }
         }
