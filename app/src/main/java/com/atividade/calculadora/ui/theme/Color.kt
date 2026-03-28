@@ -17,3 +17,5 @@ val White100 = Color(0xFFFFFFFF)
 val Yellow100 = Color(0xFFFF9605)
 
 val Gray100 = Color(0xFFA4A4A4)
+
+val Red100 = Color(0xFFFF0000)
