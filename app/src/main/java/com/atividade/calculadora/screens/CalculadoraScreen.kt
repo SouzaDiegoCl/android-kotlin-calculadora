@@ -62,7 +62,7 @@ data class Calculadora(
         }
         return num1 / num2;
     }
-    fun mult(): Double {
+    fun multiplicar(): Double {
         this.mathSymbol = "x";
         return num1 * num2;
     }
@@ -254,7 +254,7 @@ fun CalculadoraContent(
                 BotaoCalculadora(
                     Modifier.weight(1f),
                     "X",
-                    onClick = { onResultadoChange(calculadora.mult()) },
+                    onClick = { onResultadoChange(calculadora.multiplicar()) },
                     containerColor = Yellow100,
                     contentColor = White100,
                 )
@@ -330,12 +330,14 @@ fun CalculadoraContent(
             Row(
                 modifier = Modifier
                     .fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = Alignment.CenterVertically
             ) {
                 Button(
                     onClick = {onDigitoClick(0.0) },
                     modifier = modifier
                         .weight(2f)
+                        .aspectRatio(2f)
                         .padding(6.dp),
                     shape = CircleShape,
                     colors = ButtonDefaults.buttonColors(
