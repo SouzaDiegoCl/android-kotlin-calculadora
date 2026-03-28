@@ -1,4 +1,4 @@
-# Faculdade de Tecnologia de São Paulo - FATEC-SP
+# Faculdade de Tecnologia do Estado de São Paulo - FATEC Registro
 ## Atividade Prática - PDMII
 ### Aluno: Diego Baltazar
 
