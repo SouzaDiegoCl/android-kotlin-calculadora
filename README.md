@@ -12,6 +12,7 @@ A proposta da atividade e construir uma interface 100% Compose, com atualizacao 
 <p align="center">
   <img src="./docs/images/Interface_Calculadora.png" alt="Imagem do Aplicativo" width="250" />
 </p>
+
 ## Objetivo da Atividade
 
 Desenvolver um aplicativo de calculadora aplicando os conceitos de:
