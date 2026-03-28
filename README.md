@@ -9,8 +9,9 @@ Este projeto consiste no desenvolvimento de uma calculadora Android utilizando *
 A proposta da atividade e construir uma interface 100% Compose, com atualizacao do visor em tempo real a cada interacao do usuario e implementacao das operacoes matematicas basicas.
 
 ## Imagem do Aplicativo
-![Imagem do Aplicativo](./docs/images/Interface_Calculadora.png)
-
+<p align="center">
+  <img src="./docs/images/Interface_Calculadora.png" alt="Imagem do Aplicativo" width="250" />
+</p>
 ## Objetivo da Atividade
 
 Desenvolver um aplicativo de calculadora aplicando os conceitos de:
