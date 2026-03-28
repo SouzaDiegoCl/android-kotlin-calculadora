@@ -15,10 +15,12 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -62,6 +64,7 @@ data class Calculadora(
         }
         return num1 / num2;
     }
+
     fun multiplicar(): Double {
         this.mathSymbol = "x";
         return num1 * num2;
@@ -77,6 +80,7 @@ fun CalculadoraScreen(modifier: Modifier = Modifier) {
         mutableStateOf(calculadora.num1 + calculadora.num2);
     }
     var campoSelecionado by rememberSaveable { mutableStateOf(1) }
+    var mostrarAviso by rememberSaveable { mutableStateOf(false) }
 
     val validarQtdCaracteres: (Double) -> Boolean = { digito ->
         if (campoSelecionado == 1) {
@@ -104,6 +108,19 @@ fun CalculadoraScreen(modifier: Modifier = Modifier) {
         }
     }
 
+    if (mostrarAviso) {
+        AlertDialog(
+            onDismissRequest = { mostrarAviso = false },
+            confirmButton = {
+                TextButton (onClick = { mostrarAviso = false }) {
+                    Text("Entendi")
+                }
+            },
+            title = { Text("Recurso Indisponível") },
+            text = { Text("Esta operação ainda não foi implementada nesta versão da calculadora.") }
+        )
+    }
+
     CalculadoraContent(
         calculadora = calculadora,
         resultado = resultado,
@@ -115,7 +132,8 @@ fun CalculadoraScreen(modifier: Modifier = Modifier) {
             calculadora = Calculadora(0.0, 0.0, "+")
             resultado = 0.0
         },
-        modifier = modifier
+        modifier = modifier,
+        onBotaoDesativadoClick = { mostrarAviso = true },
     );
 }
 
@@ -129,6 +147,7 @@ fun CalculadoraContent(
     onResultadoChange: (Double) -> Unit,
     onLimpar: () -> Unit,
     modifier: Modifier = Modifier,
+    onBotaoDesativadoClick: () -> Unit,
 ) {
     val spacing = 8.dp
 
@@ -206,14 +225,14 @@ fun CalculadoraContent(
                 BotaoCalculadora(
                     Modifier.weight(1f),
                     "+/-",
-                    onClick = {},
+                    onClick = { onBotaoDesativadoClick() },
                     containerColor = Gray100,
                     contentColor = Red100,
                 )
                 BotaoCalculadora(
                     Modifier.weight(1f),
                     "%",
-                    onClick = {},
+                    onClick = { onBotaoDesativadoClick() },
                     containerColor = Gray100,
                     contentColor = Red100,
                 )
@@ -322,7 +341,7 @@ fun CalculadoraContent(
                 BotaoCalculadora(
                     Modifier.weight(1f),
                     "+",
-                    onClick = {onResultadoChange(calculadora.somar()) },
+                    onClick = { onResultadoChange(calculadora.somar()) },
                     containerColor = Yellow100,
                     contentColor = White100,
                 )
@@ -334,7 +353,7 @@ fun CalculadoraContent(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Button(
-                    onClick = {onDigitoClick(0.0) },
+                    onClick = { onDigitoClick(0.0) },
                     modifier = modifier
                         .weight(2f)
                         .aspectRatio(2f)
@@ -354,14 +373,14 @@ fun CalculadoraContent(
                 BotaoCalculadora(
                     Modifier.weight(1f),
                     ",",
-                    onClick = {},
+                    onClick = { onBotaoDesativadoClick() },
                     containerColor = Black80,
                     contentColor = Red100,
                 )
                 BotaoCalculadora(
                     Modifier.weight(1f),
                     "=",
-                    onClick = {},
+                    onClick = { onBotaoDesativadoClick() },
                     containerColor = Yellow100,
                     contentColor = Red100,
                 )
