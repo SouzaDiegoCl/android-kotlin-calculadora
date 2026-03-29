@@ -8,10 +8,14 @@ Este projeto consiste no desenvolvimento de uma calculadora Android utilizando *
 
 A proposta da atividade e construir uma interface 100% Compose, com atualizacao do visor em tempo real a cada interacao do usuario e implementacao das operacoes matematicas basicas.
 
+### Extra (Instalação):
+Foi gerado um APK para testes e aprendizado, para baixar basta selecionar a release nesse repositório ou clicar direto no link de instalação: https://github.com/SouzaDiegoCl/android-kotlin-calculadora/releases/download/v1.0.0/app-release.apk
+
 ## Imagem do Aplicativo
 <p align="center">
   <img src="./docs/images/Interface_Calculadora.png" alt="Imagem do Aplicativo" width="250" />
 </p>
+
 
 ## Objetivo da Atividade
 
